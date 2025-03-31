@@ -46,7 +46,7 @@ public class AdvancedEmpDeptTests
     {
         var emps = Database.GetEmps();
 
-        var jobs = emps.Select(e => e.Job.ToUpper()).Distinct();
+        var jobs = emps.Select(e => e.Job).Distinct();
         
         Assert.Contains("PRESIDENT", jobs);
         Assert.Contains("SALESMAN", jobs);
@@ -83,7 +83,7 @@ public class AdvancedEmpDeptTests
     {
         var emps = Database.GetEmps();
 
-        var result = emps.Any(e => e.Sal > 400);
+        var result = emps.Any(e => e.Comm > 400);
         
         Assert.True(result);
     }
